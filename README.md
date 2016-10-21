@@ -16,13 +16,13 @@
 	
 	app框架搭建完成，后续将引进redux和其他主流的解决方案。本人还在学习中，如有错误之处，请大家指教。
 	
-	![](http://www.z4a.net/images/2016/10/21/Home.jpg)
+	![](http://www.z4a.net/images/2016/10/21/Home2f0a8.jpg)
 
-	![](<http://www.z4a.net/images/2016/10/21/Category.jpg)
+	![](http://www.z4a.net/images/2016/10/21/Category5de33.jpg)
 
-	![](<http://www.z4a.net/images/2016/10/21/ShoppingCart.jpg)
+	![](http://www.z4a.net/images/2016/10/21/ShoppingCarted95a.jpg)
 	
-	![](http://www.z4a.net/images/2016/10/21/Me.jpg)
+	![](http://www.z4a.net/images/2016/10/21/Mec14cf.jpg)
 
    
    
