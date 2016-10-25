@@ -25,6 +25,8 @@ export default class NavigationBar extends Component {
         }
     };
 
+
+
     render() {
         return (
             <View style={styles.backgroundView}>

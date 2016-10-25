@@ -12,11 +12,17 @@ import {
 } from 'react-native';
 
 import HomeNaviBar from './HomeNaviBar';
+import Login from '../Login/Login';
 
 export default class Home extends Component {
 
     __onPressCity = ()=>{
-        alert('点击了城市按钮');
+        // alert('点击了城市按钮');
+
+        this.props.navigator.push({
+            name:"登录",
+            component:Login
+        });
     };
 
     __onPressMessage = ()=>{
@@ -40,9 +46,7 @@ export default class Home extends Component {
                              onPressSearch = {()=>this.__onPressSearch()}
                              onPressVoice = {()=>this.__onPressVoice()}
                              
-                >
-
-                </HomeNaviBar>
+                />
                 
             </View>
         )

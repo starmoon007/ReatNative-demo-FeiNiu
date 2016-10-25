@@ -9,16 +9,41 @@
 */
 import React, { Component } from 'react';
 import {
-    StyleSheet
+    StyleSheet,
+    Navigator
 } from 'react-native';
+
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
+
+import reducers from '../Reducers/reducers';
+import loginReducer from '../Reducers/reducers_login';
 
 import TabController from './TabController';
 var Dimensions = require('Dimensions');
 
 export default class AppDelegate extends Component {
     render() {
+        let initState = {loginState:{
+                                        isLogin:true,
+                                        logining:false
+                                    },
+                         userState:{}
+        };
+        let store = createStore(reducers,initState);
         return (
-            <TabController/>
+            <Provider store={store}>
+                <Navigator
+                    initialRoute = {{name:'TabController', component:TabController}}
+                    configureScene={()=>{
+                        return Navigator.SceneConfigs.FloatFromBottom;
+                  }}
+                    renderScene = {(route,navigator)=>{
+                        let Component = route.component;
+                        return <Component {...route.passProps} navigator={navigator}/>;
+                  }}
+                />
+            </Provider>
         );
     }
 };

@@ -28,6 +28,7 @@ export default class HomeNaviBar extends Component {
 
     __clickCity = ()=>{
         this.props.onPressCity && this.props.onPressCity();
+        
     };
 
 

@@ -19,8 +19,10 @@ import Category from '../Business/Category/Category';
 import Me from '../Business/ME/Me';
 import ShoppingCart from '../Business/ShoppingCart/ShoppingCart';
 import TeamBuy from '../Business/TeamBuy/TeamBuy';
+import { connect,Provider } from 'react-redux';
+import Login from '../Business/Login/Login';
 
-export default class TabController extends Component {
+ class TabController extends Component {
 
   constructor(props) {
     super(props);
@@ -74,9 +76,22 @@ export default class TabController extends Component {
       );
   };
 
+
+     componentDidUpdate (){
+         const {loginState} = this.props;
+         // alert(loginState.logining);
+         if (loginState.logining){
+             this.pushLogin();
+             return false;
+         };
+     }
+  pushLogin= ()=>{
+      this.props.navigator.push({component:Login});
+  };
+
   render(){
     return (
-        <TabNavigator>
+        <TabNavigator >
             {this.renderTabBarItem('首页','tabHomeU','tabHome','home','首页',Home,'0')}
             {this.renderTabBarItem('商品分类','tabCU','tabC','category','商品分类',Category,'0')}
             {this.renderTabBarItem('拼团','tabP','tabP','teamBuy','拼团',TeamBuy,'0')}
@@ -86,6 +101,16 @@ export default class TabController extends Component {
     );
   }
 }
+
+//selector：这是你自己编写的一个函数。这个函数声明了你的组件需要整个 store 中的哪一部分数据作为自己的 props。  
+function selector(state) {
+    return {
+        loginState : state.loginState
+    }
+}
+
+// 包装 component ，注入 dispatch 和 state 到其默认的 connect(selector)(App) 中；  
+export default connect(selector)(TabController);
 
 const styles = StyleSheet.create({
   container: {
